@@ -50,7 +50,7 @@ CMD_SONAR_SCAN="sonar-scanner \
   -Dsonar.projectName='Sheriff Scheduling [${TARGET}]' \
   -Dsonar.host.url='${SONAR_URL}' \
   -Dsonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'
-  -Dsonar.zaproxy.reportPath='zap-report.xml'"
+  -Dsonar.zaproxy.reportPath='./zap-report.xml'"
 
 # Execute commands
 #
