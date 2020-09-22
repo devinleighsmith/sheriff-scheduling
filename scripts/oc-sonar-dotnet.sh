@@ -74,7 +74,7 @@ test() {
 
 # End analysis
 #
-CMD_SONAR_END="dotnet sonarscanner end ${SONAR_TOKEN:+" -d:sonar.login=${SONAR_TOKEN}"}"
+CMD_SONAR_END="dotnet sonarscanner end -d:sonar.login='2fb968abe62bd43a45ad42f9b612042ebe2a0281'"
 
 # Execute commands
 #
