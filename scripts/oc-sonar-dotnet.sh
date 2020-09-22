@@ -28,9 +28,9 @@ export PATH="$PATH:/root/.dotnet/tools"
 # Receive parameters (source and destination)
 #
 TARGET=${TARGET:-dev}
-SONAR_PROJECT_KEY=${SONAR_PROJECT_KEY:-pims-api-${TARGET}}
-SONAR_PROJECT_NAME=${SONAR_PROJECT_NAME:-PIMS Backend [${TARGET}]}
-SONAR_URL=${SONAR_URL:-https://sonarqube-jcxjin-tools.pathfinder.gov.bc.ca}
+SONAR_PROJECT_KEY=${SONAR_PROJECT_KEY:-ss-api-${TARGET}}
+SONAR_PROJECT_NAME=${SONAR_PROJECT_NAME:-Sheriff Scheduling api [${TARGET}]}
+SONAR_URL=${SONAR_URL:-https://sonarqube-jag-shuber-tools.pathfinder.gov.bc.ca}
 
 BACKEND_DIR="${BACKEND_DIR:-../api}"
 TEST_DIR="${TEST_DIR:-${BACKEND_DIR}/tests/unit}"
