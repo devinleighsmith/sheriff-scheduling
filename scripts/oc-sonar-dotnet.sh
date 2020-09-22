@@ -32,7 +32,8 @@ SONAR_PROJECT_KEY=${SONAR_PROJECT_KEY:-ss-api-${TARGET}}
 SONAR_PROJECT_NAME=${SONAR_PROJECT_NAME:-Sheriff Scheduling api [${TARGET}]}
 SONAR_URL=${SONAR_URL:-https://sonarqube-jag-shuber-tools.pathfinder.gov.bc.ca}
 
-BACKEND_DIR="${BACKEND_DIR:-../api}"
+
+BACKEND_DIR="${BACKEND_DIR:-.}"
 TEST_DIR="${TEST_DIR:-${BACKEND_DIR}/tests/unit}"
 COVERAGE_DIR="${COVERAGE_DIR:-${TEST_DIR}/TestResults}"
 
@@ -56,7 +57,7 @@ CMD_SONAR_BEGIN="dotnet sonarscanner begin \
   -n:'${SONAR_PROJECT_NAME}' \
   -d:sonar.host.url='${SONAR_URL}' \
   -d:sonar.cs.opencover.reportsPaths='${COVERAGE_DIR}/coverage.opencover.xml' \
-  -d:sonar.login='2fb968abe62bd43a45ad42f9b612042ebe2a0281'"
+  -d:sonar.login='${SONAR_TOKEN}'"
 
 # Build & Test
 #
