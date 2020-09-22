@@ -56,7 +56,8 @@ CMD_SONAR_SCAN="sonar-scanner \
 #
 if [ "${APPLY}" ]; then
   pushd ${FRONTEND_DIR}
-  ls ${WORKSPACE/zap-output}
+  ls ${WORKSPACE}/zap-output
+  cat ${ZAP_REPORT}
   eval "${CMD_SONAR_SCAN}"
   popd
 fi
