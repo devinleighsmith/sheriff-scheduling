@@ -59,4 +59,4 @@ if [ "${APPLY}" ]; then
   eval "${CMD_SONAR_SCAN}"
 fi
 
-display_helper "${CMD_TEST}" "${CMD_SONAR_SCAN}"
+display_helper "${CMD_SONAR_SCAN}"
