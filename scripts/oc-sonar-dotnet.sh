@@ -57,7 +57,7 @@ CMD_SONAR_BEGIN="dotnet sonarscanner begin \
   -n:'${SONAR_PROJECT_NAME}' \
   -d:sonar.host.url='${SONAR_URL}' \
   -d:sonar.cs.opencover.reportsPaths='${COVERAGE_DIR}/coverage.opencover.xml' \
-  -Dsonar.projectBaseDir='${WORKSPACE}' \
+  -d:sonar.projectBaseDir='${WORKSPACE}' \
   -d:sonar.login='${SONAR_TOKEN}'"
 
 # Build & Test
