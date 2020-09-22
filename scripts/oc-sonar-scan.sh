@@ -31,7 +31,7 @@ SONAR_PROJECT_NAME=${SONAR_PROJECT_NAME:-Sheriff Scheduling Web [${TARGET}]}
 SONAR_URL=${SONAR_URL:-https://sonarqube-jag-shuber-tools.pathfinder.gov.bc.ca}
 ZAP_REPORT=${ZAP_REPORT:-}
 
-FRONTEND_DIR="${FRONTEND_DIR:-../../frontend}"
+FRONTEND_DIR="${FRONTEND_DIR:-web}"
 
 # Check requirements
 #
