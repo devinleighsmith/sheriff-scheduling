@@ -58,16 +58,28 @@ CMD_SONAR_BEGIN="dotnet sonarscanner begin \
   -d:sonar.cs.opencover.reportsPaths='${COVERAGE_DIR}/coverage.opencover.xml' \
   -d:sonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'"
 
+# Build & Test
+#
+CMD_BUILD="dotnet build ${BACKEND_DIR}"
+
+test() {
+  testProjs=( "api" "dal" )
+  for i in "${testProjs[@]}";
+  do
+    projectDir="${TEST_DIR}/$i"
+    dotnet test ${projectDir} -m:1 --collect:"XPlat Code Coverage" --settings ${projectDir}/coverlet.runsettings --no-restore
+    mv ${projectDir}/TestResults/*/* ${COVERAGE_DIR}
+  done
+}
+
 # End analysis
 #
-CMD_SONAR_END="dotnet sonarscanner end ${SONAR_TOKEN:+" -d:sonar.login=${SONAR_TOKEN}"}"
+CMD_SONAR_END="dotnet sonarscanner end -d:sonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'"
 
 # Execute commands
 #
 if [ "${APPLY}" ]; then
   eval "${CMD_SONAR_BEGIN}"
-  eval "${CMD_BUILD}"
-  test
   eval "${CMD_SONAR_END}"
 fi
 
