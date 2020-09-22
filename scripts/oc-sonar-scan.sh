@@ -43,10 +43,6 @@ which sonar-scanner >/dev/null 2>&1 || {
 #
 rm -rf ".sonarqube/"
 
-# Unit tests & coverage
-#
-CMD_TEST="npm run coverage"
-
 # Begin analysis
 #
 CMD_SONAR_SCAN="sonar-scanner \
@@ -60,7 +56,6 @@ CMD_SONAR_SCAN="sonar-scanner \
 #
 if [ "${APPLY}" ]; then
   pushd ${FRONTEND_DIR}
-  eval "${CMD_TEST}"
   eval "${CMD_SONAR_SCAN}"
   popd
 fi
