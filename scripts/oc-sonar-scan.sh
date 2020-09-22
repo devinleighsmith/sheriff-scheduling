@@ -49,15 +49,14 @@ CMD_SONAR_SCAN="sonar-scanner \
   -Dsonar.projectKey='web-${TARGET}' \
   -Dsonar.projectName='Sheriff Scheduling [${TARGET}]' \
   -Dsonar.host.url='${SONAR_URL}' \
-  -Dsonar.login='2fb968abe62bd43a45ad42f9b612042ebe2a0281'
+  -Dsonar.projectBaseDir='${FRONTEND_DIR}' \
+  -Dsonar.login='2fb968abe62bd43a45ad42f9b612042ebe2a0281' \
   -Dsonar.zaproxy.reportPath='${ZAP_REPORT}'"
 
 # Execute commands
 #
 if [ "${APPLY}" ]; then
-  pushd ${FRONTEND_DIR}
   eval "${CMD_SONAR_SCAN}"
-  popd
 fi
 
 display_helper "${CMD_TEST}" "${CMD_SONAR_SCAN}"
