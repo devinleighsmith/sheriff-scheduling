@@ -81,6 +81,7 @@ CMD_SONAR_END="dotnet sonarscanner end -d:sonar.login='2fb968abe62bd43a45ad42f9b
 # Execute commands
 #
 if [ "${APPLY}" ]; then
+sh """ls"""
   eval "${CMD_SONAR_BEGIN}"
   eval "${CMD_BUILD}"
   #test currently there is no test project. TODO: update.
