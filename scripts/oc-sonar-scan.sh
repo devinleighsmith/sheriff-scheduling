@@ -50,8 +50,8 @@ CMD_TEST="npm run coverage"
 # Begin analysis
 #
 CMD_SONAR_SCAN="sonar-scanner \
-  -Dsonar.projectKey='pims-frontend-${TARGET}' \
-  -Dsonar.projectName='PIMS Frontend [${TARGET}]' \
+  -Dsonar.projectKey='web-${TARGET}' \
+  -Dsonar.projectName='Sheriff Scheduling [${TARGET}]' \
   -Dsonar.host.url='${SONAR_URL}' \
   ${SONAR_TOKEN:+ -Dsonar.login='${SONAR_TOKEN}'} \
   ${ZAP_REPORT:+ -Dsonar.zaproxy.reportPath='${ZAP_REPORT}'}"
