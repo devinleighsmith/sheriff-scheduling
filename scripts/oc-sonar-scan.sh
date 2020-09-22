@@ -50,14 +50,14 @@ CMD_SONAR_SCAN="sonar-scanner \
   -Dsonar.projectName='Sheriff Scheduling [${TARGET}]' \
   -Dsonar.host.url='${SONAR_URL}' \
   -Dsonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'
-  -Dsonar.zaproxy.reportPath='${ZAP_REPORT}'"
+  -Dsonar.zaproxy.reportPath='zap-report.xml'"
 
 # Execute commands
 #
 if [ "${APPLY}" ]; then
+  cp ${ZAP_REPORT} ${FRONTEND_DIR}
   pushd ${FRONTEND_DIR}
-  ls ${WORKSPACE}/zap-output
-  cat ${ZAP_REPORT}
+  ls
   eval "${CMD_SONAR_SCAN}"
   popd
 fi
