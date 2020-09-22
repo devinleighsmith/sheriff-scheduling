@@ -56,7 +56,7 @@ CMD_SONAR_BEGIN="dotnet sonarscanner begin \
   -n:'${SONAR_PROJECT_NAME}' \
   -d:sonar.host.url='${SONAR_URL}' \
   -d:sonar.cs.opencover.reportsPaths='${COVERAGE_DIR}/coverage.opencover.xml' \
-  -d:sonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'"
+  -sonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'"
 
 # Build & Test
 #
@@ -74,12 +74,14 @@ test() {
 
 # End analysis
 #
-CMD_SONAR_END="dotnet sonarscanner end -d:sonar.login='35f9f849e179f9a0957251860e55ee006cbcbc3c'"
+CMD_SONAR_END="dotnet sonarscanner end ${SONAR_TOKEN:+" -d:sonar.login=${SONAR_TOKEN}"}"
 
 # Execute commands
 #
 if [ "${APPLY}" ]; then
   eval "${CMD_SONAR_BEGIN}"
+  eval "${CMD_BUILD}"
+  #test currently there is no test project. TODO: update.
   eval "${CMD_SONAR_END}"
 fi
 
