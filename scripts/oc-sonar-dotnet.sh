@@ -62,7 +62,7 @@ CMD_SONAR_BEGIN="dotnet sonarscanner begin \
 
 # Build & Test
 #
-CMD_BUILD="dotnet build ${BACKEND_DIR}"
+CMD_BUILD="dotnet build ${WORKSPACE} -v diag"
 
 test() {
   testProjs=( "api" "dal" )
