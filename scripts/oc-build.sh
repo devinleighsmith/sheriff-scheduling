@@ -53,16 +53,17 @@ if [ "${APPLY}" ]; then
 
   count=1
   timeout=10
-  while [ "${BUILD_RESULT}" != "Complete" && $count -le $timeout ]; do
+  while [ "${BUILD_RESULT}" != "Complete"   ]; do
     sleep 1
     count=$(( $count + 1 ))
+    if [ $count -ge $timeout ]; then
+      echo "Build result: ${BUILD_RESULT}"
+      echo -e "\n*** Build not complete! ***\n"
+      exit 1
+    fi
   done
   # Make sure that result is a successful completion
-  if [ "${BUILD_RESULT}" != "Complete" ]; then
-    echo "Build result: ${BUILD_RESULT}"
-    echo -e "\n*** Build not complete! ***\n"
-    exit 1
-  fi
+  
 fi
 
 # Provide oc command instruction
