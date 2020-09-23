@@ -52,7 +52,7 @@ if [ "${APPLY}" ]; then
   BUILD_RESULT=$(oc -n ${PROJ_TOOLS} get build/${BUILD_NAME}-${BUILD_LAST} -o 'jsonpath={.status.phase}')
 
   count=1
-  timeout=10
+  timeout=30
   while [ "${BUILD_RESULT}" != "Complete"   ]; do
     sleep 1
     count=$(( $count + 1 ))
