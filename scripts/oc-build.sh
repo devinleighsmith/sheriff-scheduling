@@ -51,6 +51,12 @@ if [ "${APPLY}" ]; then
   # Command to get the build result
   BUILD_RESULT=$(oc -n ${PROJ_TOOLS} get build/${BUILD_NAME}-${BUILD_LAST} -o 'jsonpath={.status.phase}')
 
+  count=1
+  timeout=10
+  while [ "${BUILD_RESULT}" != "Complete" && $count -le $timeout ]; do
+    sleep 1
+    count=$(( $count + 1 ))
+  done
   # Make sure that result is a successful completion
   if [ "${BUILD_RESULT}" != "Complete" ]; then
     echo "Build result: ${BUILD_RESULT}"
