@@ -29,7 +29,7 @@ source "$(dirname ${0})/common.sh"
 SHORTNAME=${1:-}
 ENVIRONMENT_NAME="${2:-dev}"
 RELEASE_TAG=${RELEASE_TAG:-latest}
-PROJ_TARGET="${PROJ_PREFIX}"
+PROJ_TARGET="${PROJ_PREFIX}-${ENVIRONMENT_NAME}"
 
 # E.g. <deploymentname>-prod
 #
