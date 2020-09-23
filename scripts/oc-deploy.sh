@@ -60,10 +60,10 @@ if [ "${APPLY}" ]; then
   count=1
   timeout=10
   # Check previous deployment statuses before moving onto new deploying
-  while [ $count -le 60 ]; do
+  while [ $count -le $timeout ]; do
     sleep 1
-    PENDINGS="oc -n ${PROJ_TARGET} rollout history dc/${DEPLOYMENT_NAME} | awk '{print $2}' | grep -c Pending || true"
-    RUNNINGS="oc -n ${PROJ_TARGET} rollout history dc/${DEPLOYMENT_NAME} | awk '{print $2}' | grep -c Running || true"
+    PENDINGS="$(oc -n ${PROJ_TARGET} rollout history dc/${DEPLOYMENT_NAME} | awk '{print $2}' | grep -c Pending || true)"
+    RUNNINGS="$(oc -n ${PROJ_TARGET} rollout history dc/${DEPLOYMENT_NAME} | awk '{print $2}' | grep -c Running || true)"
     if [ "${PENDINGS}" == 0 ] && [ "${RUNNINGS}" == 0 ]; then
       # No pending or running replica controllers so exit the while loop
       break 2
