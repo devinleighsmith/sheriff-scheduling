@@ -33,7 +33,7 @@ PROJ_TARGET="${PROJ_PREFIX}-${ENVIRONMENT_NAME}"
 
 # E.g. <deploymentname>-prod
 #
-IMG_DEST="$}-${SHORTNAME}"
+IMG_DEST="${SHORTNAME}"
 DEPLOYMENT_NAME="${SHORTNAME}"
 
 # Trigger the deployment manually when both tags reference the same image hash - retagging won't trigger a deployment
