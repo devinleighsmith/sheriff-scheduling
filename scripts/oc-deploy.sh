@@ -29,12 +29,12 @@ source "$(dirname ${0})/common.sh"
 SHORTNAME=${1:-}
 ENVIRONMENT_NAME="${2:-dev}"
 RELEASE_TAG=${RELEASE_TAG:-latest}
-PROJ_TARGET="${PROJ_PREFIX}-${ENVIRONMENT_NAME}"
+PROJ_TARGET="${PROJ_PREFIX}"
 
 # E.g. <deploymentname>-prod
 #
 IMG_DEST="$}-${SHORTNAME}"
-DEPLOYMENT_NAME="${SHORTNAME}-${ENVIRONMENT_NAME}"
+DEPLOYMENT_NAME="${SHORTNAME}"
 
 # Trigger the deployment manually when both tags reference the same image hash - retagging won't trigger a deployment
 #
