@@ -50,7 +50,6 @@ OC_CANCEL_ALL_PREV_DEPLOY="oc -n ${PROJ_TARGET} rollout cancel dc/${DEPLOYMENT_N
 #
 OC_IMG_RETAG="oc -n ${PROJ_TOOLS} tag ${IMG_DEST}:${RELEASE_TAG} ${IMG_DEST}:${ENVIRONMENT_NAME}"
 OC_DEPLOY="oc -n ${PROJ_TARGET} rollout latest dc/${DEPLOYMENT_NAME}"
-oc -n ${PROJ_TARGET} rollout latest dc/${DEPLOYMENT_NAME}
 [ "${MANUAL_DEPLOY}" ] || OC_DEPLOY=""
 OC_STATUS="oc -n ${PROJ_TARGET} rollout status dc/${DEPLOYMENT_NAME} --watch"
 
