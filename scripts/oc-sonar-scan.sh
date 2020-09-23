@@ -47,7 +47,7 @@ rm -rf ".sonarqube/"
 #
 CMD_SONAR_SCAN="sonar-scanner \
   -Dsonar.projectKey='web-${TARGET}' \
-  -Dsonar.projectName='Sheriff Scheduling [${TARGET}]' \
+  -Dsonar.projectName='Sheriff Scheduling' \
   -Dsonar.host.url='${SONAR_URL}' \
   -Dsonar.projectBaseDir='${FRONTEND_DIR}' \
   -Dsonar.login='${SONAR_TOKEN}' \
