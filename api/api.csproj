@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>SS.Api</RootNamespace>
     <UserSecretsId>de959767-ede6-4f8a-b6b9-d36aed70339C</UserSecretsId>
+    <ProjectGuid>{6224c484-3e23-4f06-a749-195c1e478110}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\$(Configuration)\netcoreapp3.1\api.xml</DocumentationFile>
