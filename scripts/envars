@@ -1,8 +1,6 @@
 GIT_URL="${GIT_URL:-$(git remote get-url origin)}"
 GIT_BRANCH="${GIT_BRANCH:-$(git describe --all --contains HEAD)}"
 
-APP_NAME="${APP_NAME:-pims}"
-
 PROJ_PREFIX="${PROJ_PREFIX:-jag-shuber}"
 PROJ_TOOLS="${PROJ_TOOLS:-$(echo ${PROJ_PREFIX})-tools}"
 PROJ_DEV="${PROJ_DEV:-$(echo ${PROJ_PREFIX})-dev}"
