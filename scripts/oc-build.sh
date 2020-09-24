@@ -50,19 +50,6 @@ if [ "${APPLY}" ]; then
   BUILD_LAST=$(oc -n ${PROJ_TOOLS} get bc/${BUILD_NAME} -o 'jsonpath={.status.lastVersion}')
   # Command to get the build result
   BUILD_RESULT=$(oc -n ${PROJ_TOOLS} get build/${BUILD_NAME}-${BUILD_LAST} -o 'jsonpath={.status.phase}')
-
-  count=1
-  timeout=60
-  while [ "${BUILD_RESULT}" != "Complete"   ]; do
-    sleep 1
-    count=$(( $count + 1 ))
-    if [ $count -ge $timeout ]; then
-      echo "Build result: ${BUILD_RESULT}"
-      echo -e "\n*** Build not complete! ***\n"
-      exit 1
-    fi
-  done
-  # Make sure that result is a successful completion
   
 fi
 
